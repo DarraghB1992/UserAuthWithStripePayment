@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'hello',
     'accounts',
     'django_forms_bootstrap',
+    'stripe',
 ]
 
 SITE_ID = 2
@@ -120,5 +121,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 AUTH_USER_MODEL = 'accounts.User'
 AUTHENTICATION_BACKENDS = ('accounts.backends.EmailAuth',)
+
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE', 'pk_test_ntes0OXwVQxF2wGUPX6aLzsA')
+
+STRIPE_SECRET = os.getenv('STRIPE_SECRET', 'sk_test_pUvsmjOxPpoKhEirP6pvuyvu')
+
+
